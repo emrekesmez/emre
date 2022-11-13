@@ -2,25 +2,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
+        int k;
 
+        System.out.print("Sayı Giriniz : ");
+        k = input.nextInt();
 
-        int heat;
-        Scanner input =new Scanner(System.in);
-        System.out.println( " Sicaklik Derecesi Giriniz");
-        heat=input.nextInt();
+        int sum = 0, counter = 0;
 
-        if (heat <= 5) {
-            System.out.println( "Kayak yababilirsin");
+        for (int i = 1; i <= k; i++) {
+            if (i % 3 == 0 && i % 4 == 0) {
+                sum += i;
+                counter++;
+            }
         }
-        else if ( heat>5 && heat<=15) {
-            System.out.println(" Sinamaya gidebilirsin");
-        }
-        else if ( heat>=15 && heat<=25) {
-            System.out.println( " Piknik gide bilirsin");
-        }
-        else if ( heat>=25) {
-            System.out.println( " Yuzmeye gide bilirsin");
-        }
+
+        double average = sum / counter;
+        if (sum != 0) {
+            System.out.println("Ortalama : " + average);
+        } else System.out.println(k + " sayisina kadar 3 ve 4'e bölünebilen sayı yoktur!");
     }
 }
