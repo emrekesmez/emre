@@ -1,26 +1,21 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
-        int k;
-
-        System.out.print("Sayı Giriniz : ");
-        k = input.nextInt();
-
-        int sum = 0, counter = 0;
-
-        for (int i = 1; i <= k; i++) {
-            if (i % 3 == 0 && i % 4 == 0) {
-                sum += i;
-                counter++;
-            }
+    static boolean isPalindrom(int number) {
+        int temp = number, reverseNumber = 0, lastnumber;
+        while (temp != 0) {
+            lastnumber = temp % 10;
+            reverseNumber = (reverseNumber * 10) + lastnumber;
+            temp /= 10;
         }
-
-        double average = sum / counter;
-        if (sum != 0) {
-            System.out.println("Ortalama : " + average);
-        } else System.out.println(k + " sayisina kadar 3 ve 4'e bölünebilen sayı yoktur!");
+        if (number==reverseNumber){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println(isPalindrom(254));
     }
 }
